@@ -1,0 +1,19 @@
+---
+        
+- name: Start filebeat container
+  docker_container:
+    image: docker.elastic.co/beats/filebeat:6.3.2
+    name: filebeat
+    hostname: filebeat
+    state: started
+    detach: yes 
+    networks: 
+      - name: elk_net
+        ipv4_adress: "127.0.0.1"
+    volumes: 
+    - ./roles/elk/files/filebeat.yml:/usr/share/filebeat/filebeat.yml 
+
+#    - /home/michzipor/ansible/roles/elk/files/filebeat.yml:/usr/share/filebeat/filebeat.yml 
+
+
+

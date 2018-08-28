@@ -1,0 +1,20 @@
+---
+
+- name: Start kibana container
+  docker_container:
+    image: docker.elastic.co/kibana/kibana:6.3.2
+    name: kibana
+    hostname: kibana
+    state: started
+    detach: yes 
+    networks: 
+      - name: elk_net
+        ipv4_adress: "127.0.0.1"
+    ports:
+    - "5601:5601"
+    volumes: 
+    - ./roles/elk/files/kibana.yml:/usr/share/kibana/conf/kibana.yml
+#    - /home/michzipor/ansible/roles/elk/files/kibana.yml:/usr/share/kibana/conf/kibana.yml
+
+
+

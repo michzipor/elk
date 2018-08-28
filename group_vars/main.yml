@@ -1,0 +1,4 @@
+---
+
+app_path: "./roles/elk/files"
+host: "{{ inventory_hostname }}"

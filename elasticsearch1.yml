@@ -1,0 +1,37 @@
+---
+
+- name: Make sure docker is running
+  service:
+    name: docker
+    state: started # Start service if not running
+    enabled: yes # Whether the service should start on boot
+
+- name: Create a network
+  docker_network:
+    name: elk_net
+    driver: bridge
+
+- name: Start elastic search container
+  docker_container:
+    image: docker.elastic.co/elasticsearch/elasticsearch:6.3.2
+    name: elasticsearch
+    hostname: elasticsearch
+    state: started
+    detach: yes 
+    networks: 
+      - name: elk_net
+        ipv4_adress: "127.0.0.1"
+    ports:
+    - "9200:9200"
+    volumes:
+    - esdata:/usr/lib/docker/volumes/elasticsearch/data 
+    - eslog:/usr/lib/docker/volumes/elasticsearch/log
+
+
+#- name: vm.max_map_count set
+#  sysctl:
+#    name: vm.max_map_count
+#    value: 262144 
+#    auto_remove: yes
+#    ulimits: no # specified "nofile:262144:262144" is max count of opened files
+

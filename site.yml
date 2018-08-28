@@ -1,0 +1,9 @@
+---
+
+- hosts: elkhost
+  become: yes # to activate sudo privilege
+  become_method: sudo
+  gather_facts: no # not need gather facts that check available variables on remote host
+  roles:
+     - elk
+ 
