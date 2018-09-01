@@ -9,10 +9,10 @@
     detach: yes 
     networks: 
       - name: elk_net
-        ipv4_adress: "127.0.0.1"
-    ports:
-    - "8080:8080"
+    published_ports:
+    - "127.0.0.1:8080:80" # host:port:container_port
+    - "127.0.0.1:443:443"
     volumes: 
-    - ./roles/elk/files/nginx_auth_basic.conf:/etc/nginx/nginx.conf
-#    - /home/michzipor/ansible/roles/elk/files/nginx_auth_basic.conf:/etc/nginx/nginx.conf
+    - "{{ elk_nginx_config_dir }}/nginx_elk.conf:/etc/nginx/nginx.conf"
+
 
