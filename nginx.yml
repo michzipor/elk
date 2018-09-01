@@ -14,5 +14,3 @@
     - "127.0.0.1:443:443"
     volumes: 
     - "{{ elk_nginx_config_dir }}/nginx_elk.conf:/etc/nginx/nginx.conf"
-
-
