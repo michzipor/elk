@@ -10,6 +10,9 @@
   docker_network:
     name: elk_net
     driver: bridge
+    driver_options:
+      com.docker.network.bridge.name: elk_net
+      com.docker.network.bridge.host_binding_ipv4: 127.0.0.1
 
 - name: Start elastic search container
   docker_container:
@@ -20,7 +23,6 @@
     detach: yes 
     networks: 
       - name: elk_net
-        ipv4_adress: "127.0.0.1"
     ports:
     - "9200:9200"
     volumes:
