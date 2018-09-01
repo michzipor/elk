@@ -1,4 +1,5 @@
 ---
 
-app_path: "./roles/elk/files"
-host: "{{ inventory_hostname }}"
+elk_base_dir: /home/michzipor 
+elk_nginx_proj_dir: "ansible"
+elk_nginx_config_dir: "{{ elk_base_dir }}/{{ elk_nginx_proj_dir }}/roles/elk/files"
