@@ -28,12 +28,3 @@
     volumes:
     - esdata:/usr/lib/docker/volumes/elasticsearch/data 
     - eslog:/usr/lib/docker/volumes/elasticsearch/log
-
-
-#- name: vm.max_map_count set
-#  sysctl:
-#    name: vm.max_map_count
-#    value: 262144 
-#    auto_remove: yes
-#    ulimits: no # specified "nofile:262144:262144" is max count of opened files
-
