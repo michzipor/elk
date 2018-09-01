@@ -9,14 +9,7 @@
     detach: yes 
     networks: 
       - name: elk_net
-        ipv4_adress: "127.0.0.1"
-    ports:
+    published_ports:
     - "5044:5044"
     volumes: 
-    - ./roles/elk/files/logstash.conf:/usr/share/logstash/pipeline/logstash.conf
-
-#    - /home/michzipor/ansible/roles/elk/files/logstash.conf:/usr/share/logstash/pipeline/logstash.conf
- 
-
-
-
+    - "{{ elk_nginx_config_dir }}/logstash.conf:/usr/share/logstash/pipeline/logstash.conf"
