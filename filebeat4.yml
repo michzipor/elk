@@ -9,11 +9,5 @@
     detach: yes 
     networks: 
       - name: elk_net
-        ipv4_adress: "127.0.0.1"
     volumes: 
-    - ./roles/elk/files/filebeat.yml:/usr/share/filebeat/filebeat.yml 
-
-#    - /home/michzipor/ansible/roles/elk/files/filebeat.yml:/usr/share/filebeat/filebeat.yml 
-
-
-
+    - "{{ elk_nginx_config_dir }}/filebeat.yml:/usr/share/filebeat/filebeat.yml" 
