@@ -6,4 +6,3 @@
   gather_facts: no # not need gather facts that check available variables on remote host
   roles:
      - elk
- 
